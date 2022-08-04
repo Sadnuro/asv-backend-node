@@ -1,0 +1,24 @@
+{
+  "name": "asv2",
+  "version": "1.0.0",
+  "description": "Proyecto: Asignacion Subsidios de Vivienda. Migracion de Java Springboot a Node.js v16.14 core de bases de datos Oracle Database 18c Express Edition",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Node.js",
+    "Backend",
+    "Data"
+  ],
+  "author": "Sadith.Nunez",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1",
+    "oracledb": "^5.4.0",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
