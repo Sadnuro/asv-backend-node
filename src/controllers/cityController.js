@@ -29,7 +29,7 @@ const getById = async (req, res) => {
 const getByDepartmentId = async (req, res) => {
     try {
         const params = req.params;
-        const result = await cityService.getByDepartmentId(params.deptoId);
+        const result = await cityService.getByDepartmentId(params.deptId);
         
         res.send( {status: 'successful', data: result } );
     } catch (error) {

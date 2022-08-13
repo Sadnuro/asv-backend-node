@@ -4,9 +4,9 @@ const getAll = async () => {
     let connection;
     try {
         connection = await oracleConn();
-        const result = await connection.execute(`SELECT * FROM CITIES -- WHERE ROWNUM = 1`); // connection.execute(`SELECT * FROM CITIES`);
+        const result = await connection.execute(`SELECT * FROM CITIES`);
 
-        return result; //res.send( {status: 'successful', data: result } );
+        return result;
     } catch (error) {
         console.error( {Error: error} );
     } finally {
@@ -21,12 +21,13 @@ const getAll = async () => {
 const getById =  async (id)=>{
     let connection;
     try {
-        const query       = `SELECT * FROM CITIES WHERE ID_CITY = :id`; 
+        console.log('DAO value: ', id)
+        const query  = `SELECT * FROM CITIES WHERE ID_CITY = :id`; 
         
         connection = await oracleConn();
-        const result = await connection.execute(query, id); // connection.execute(`SELECT * FROM CITIES`);
+        const result = await connection.execute(query, [id]); 
 
-        return result; //res.send( {status: 'successful', data: result } );
+        return result;
     } catch (error) {
         console.error( {Error: error} );
     } finally {
@@ -44,7 +45,7 @@ const getByDepartmentId = async (deptId) => {
         const query       = `SELECT * FROM CITIES WHERE ID_DEPARTMENT = :id`; 
         
         connection = await oracleConn();
-        const result = await connection.execute(query, deptId);
+        const result = await connection.execute(query, [deptId]);
         
         return result;
     } catch (error) {
