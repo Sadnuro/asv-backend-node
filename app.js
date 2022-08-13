@@ -1,5 +1,5 @@
 const express = require('express');
-const oracleConn = require('./src/database/oracleConn');
+const morgan = require('morgan');
 
 // Routes
 const cityRouter = require('./src/routers/cityRouter')
@@ -8,6 +8,7 @@ const cityRouter = require('./src/routers/cityRouter')
 const port = 3000;
 const app = express();
 app.use( express.urlencoded({extended: false}) );
+app.use(morgan('dev')) // combined | common | dev |short | tiny
 
 const api_path = '/asv2/api/form-data';
 app.use(api_path, cityRouter);

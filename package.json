@@ -15,10 +15,10 @@
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.1",
-    "oracledb": "^5.4.0",
-    "sequelize": "^6.21.3"
+    "oracledb": "^5.4.0"
   },
   "devDependencies": {
+    "morgan": "^1.10.0",
     "nodemon": "^2.0.19"
   }
 }
