@@ -4,7 +4,7 @@ const config = require('./config.json').development;
 // Configura respuesta de Database como json o array.
 // OUT_FORMAT_ARRAY      : { metaData: [{}, ...], rows: [ [], ... ] }
 // OUT_FORMAT_OBJECT     : { metaData: [{}, ...], rows: [ {}, ... ] }
-oracledb.outFormat  = oracledb.OUT_FORMAT_ARRAY;  // Array is default
+oracledb.outFormat  = oracledb.OUT_FORMAT_OBJECT;  // Array is default
 oracledb.autoCommit = true;
 
 const db_options = {

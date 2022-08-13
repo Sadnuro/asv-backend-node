@@ -1,77 +1,39 @@
-const express = require('express');
-const oracleConn= require('../database/oracleConn')
+// Packages
+const  express = require('express');
 
+// Services
+const cityService = require('../services/CityService');
 
 const getAllCities = async (req, res) => {
-    let connection;
     try {
-        connection = await oracleConn();
-
-        const result = await connection.execute(`SELECT * FROM CITIES -- WHERE ROWNUM = 1`); // connection.execute(`SELECT * FROM CITIES`);
-        // console.log(result);
+        console.log('HTTP')
+        const result = await cityService.getAllCities();
 
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         console.error( {Error: error} );
-    } finally {
-        try {
-            await connection.close();
-        } catch (error) {
-            console.error();
-        }
     }
 }
 
 const getById = async (req, res) => {
-    let connection;
     try {
         const params = req.params;
-        const queryParams = [
-            params.cityId
-        ];
-
-        const query       = `SELECT * FROM CITIES WHERE ID_CITY = :id`; 
-        
-        connection = await oracleConn();
-        const result = await connection.execute(query, queryParams); // connection.execute(`SELECT * FROM CITIES`);
+        const result = await cityService.getById(params.cityId)
 
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         console.error( {Error: error} );
-    } finally {
-        try {
-            await connection.close();
-        } catch (error) {
-            console.error();
-        }
     }
-
-
-    // const byName = `SELECT * FROM CITIES WHERE CITY_NAME = 'VALLEDUPAR'`;
 };
 
 const getByDepartmentId = async (req, res) => {
-    let connection;
     try {
         const params = req.params;
-        const queryParams = [
-            params.deptId
-        ];
-
-        const query       = `SELECT * FROM CITIES WHERE ID_DEPARTMENT = :id`; 
-        
-        connection = await oracleConn();
-        const result = await connection.execute(query, queryParams);
+        const result = await cityService.getByDepartmentId(params.deptoId);
         
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         console.error( {Error: error} );
-    } finally {
-        try {
-            await connection.close();
-        } catch (error) {
-            console.error();
-        }
     }
 };
 
@@ -98,5 +60,5 @@ const getByDepartmentId = async (req, res) => {
 module.exports = {
     getAllCities,
     getById,
-    getByDepartmentId
+    getByDepartmentId,
 }

@@ -9,7 +9,8 @@ const port = 3000;
 const app = express();
 app.use( express.urlencoded({extended: false}) );
 
-app.use('/city', cityRouter);
+const api_path = '/asv2/api/form-data';
+app.use(api_path, cityRouter);
 
 
 app.get('/', async (req, res)=> {

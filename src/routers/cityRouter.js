@@ -7,14 +7,12 @@ const cityController = require('../controllers/cityController');
 
 // Middlewares
 
-
-// constants
-const root = 'city';
-
 // Routes
-router.get('/', cityController.getAllCities);
-router.get('/:cityId', cityController.getById);
-router.get('/department/:deptId', cityController.getByDepartmentId);
+const route_path = '/city';
+
+router.get(`${route_path}/`, cityController.getAllCities);
+router.get(`${route_path}/:cityId`, cityController.getById);
+router.get(`${route_path}/department/:deptId`, cityController.getByDepartmentId);
 
 
 module.exports = router;
