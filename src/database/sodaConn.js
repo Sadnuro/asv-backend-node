@@ -21,8 +21,10 @@ async function connect ()  {
     }
 }
 
+module.exports = connect;
 
 
-module.exports = {
-    conn: connect
-}
+
+// module.exports = {
+//     conn: connect
+// }

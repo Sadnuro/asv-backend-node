@@ -1,8 +1,8 @@
 {
     "development": {
-        "username": "root",
-        "password": null,
-        "database": "database_development",
+        "username": "asv",
+        "password": "asvapp",
+        "database": "XE",
         "host": "127.0.0.1",
         "port": "1521"
     },
