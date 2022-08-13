@@ -4,10 +4,10 @@ const  express = require('express');
 // Services
 const cityService = require('../services/CityService');
 
-const getAllCities = async (req, res) => {
+const getAll = async (req, res) => {
     try {
         console.log('HTTP')
-        const result = await cityService.getAllCities();
+        const result = await cityService.getAll();
 
         res.send( {status: 'successful', data: result } );
     } catch (error) {
@@ -58,7 +58,7 @@ const getByDepartmentId = async (req, res) => {
 // };
 
 module.exports = {
-    getAllCities,
+    getAll,
     getById,
     getByDepartmentId,
 }

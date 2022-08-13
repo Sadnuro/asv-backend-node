@@ -1,9 +1,9 @@
 const cityDAO = require('../dao/cityDao');
 
-const getAllCities = async () => {
+const getAll = async () => {
     let connection;
     try {
-        const result = await cityDAO.getAllCities();
+        const result = await cityDAO.getAll();
         return result; //res.send( {status: 'successful', data: result } );
     } catch (error) {
         console.error( {Error: error} );
@@ -33,7 +33,7 @@ const getByDepartmentId = async (deptId) => {
 };
 
 module.exports = {
-    getAllCities,
+    getAll,
     getById,
     getByDepartmentId
 };

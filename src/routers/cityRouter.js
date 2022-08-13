@@ -10,7 +10,7 @@ const cityController = require('../controllers/cityController');
 // Routes
 const route_path = '/city';
 
-router.get(`${route_path}/`, cityController.getAllCities);
+router.get(`${route_path}/`, cityController.getAll);
 router.get(`${route_path}/:cityId`, cityController.getById);
 router.get(`${route_path}/department/:deptId`, cityController.getByDepartmentId);
 

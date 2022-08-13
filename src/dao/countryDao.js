@@ -59,7 +59,7 @@ const getByDepartmentId = async (deptId) => {
 };
 
 module.exports = {
-    getAll,
+    getAllCities,
     getById,
     getByDepartmentId
 };
