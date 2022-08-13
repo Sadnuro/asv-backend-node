@@ -38,25 +38,6 @@ const getByDepartmentId = async (req, res) => {
 };
 
 
-// const method = async (req, res) => {
-//     let connection;
-//     try {
-//         connection = await oracleConn();
-//         const result = await connection.execute(`SELECT * FROM CITIES WHERE `); // connection.execute(`SELECT * FROM CITIES`);
-//         console.log(result);
-//         return true
-
-//     } catch (error) {
-//         console.error( {Error: error} );
-//     } finally {
-//         try {
-//             await connection.close();
-//         } catch (error) {
-//             console.error();
-//         }
-//     }
-// };
-
 module.exports = {
     getAll,
     getById,
