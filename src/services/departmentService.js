@@ -1,9 +1,9 @@
 const { autoCommit, STMT_TYPE_ROLLBACK } = require('oracledb');
-const cityDAO = require('../dao/cityDao');
+const departmentDAO = require('../dao/departmentDao');
 
 const getAll = async () => {
     try {
-        const result = await cityDAO.getAll();
+        const result = await departmentDAO.getAll();
 
         return result; 
     } catch (error) {
@@ -13,7 +13,7 @@ const getAll = async () => {
 
 const getById =  async (id)=>{
     try {
-        const result = await cityDAO.getById(id);
+        const result = await departmentDAO.getById(id);
 
         return result;
     } catch (error) {
@@ -21,9 +21,9 @@ const getById =  async (id)=>{
     }
 };
 
-const getByDepartmentId = async (deptId) => {
+const getByCountryId = async (countryId) => {
     try {
-        const result = await cityDAO.getByDepartmentId(deptId);
+        const result = await departmentDAO.getByDepartmentId(countryId);
         
         return result;
     } catch (error) {
@@ -34,5 +34,5 @@ const getByDepartmentId = async (deptId) => {
 module.exports = {
     getAll,
     getById,
-    getByDepartmentId
+    getByCountryId
 };

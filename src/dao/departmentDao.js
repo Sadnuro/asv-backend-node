@@ -4,8 +4,7 @@ const getAll = async () => {
     let connection;
     try {
         connection = await oracleConn();
-        const result = await connection.execute(`SELECT * FROM CITIES`);
-
+        const result = await connection.execute(`SELECT * FROM DEPARTMENTS`);
         return result;
     } catch (error) {
         throw new Error(error.message);
@@ -21,7 +20,7 @@ const getAll = async () => {
 const getById =  async (id)=>{
     let connection;
     try {
-        const query  = `SELECT * FROM CITIES WHERE ID_CITY = :id`; 
+        const query  = `SELECT * FROM DEPARTMENTS WHERE ID_DEPARTMENT = :id`; 
         connection = await oracleConn();
         const result = await connection.execute(query, [id]); 
         return result;
@@ -36,12 +35,12 @@ const getById =  async (id)=>{
     }
 };
 
-const getByDepartmentId = async (deptId) => {
+const getByCountryId = async (countryId) => {
     let connection;
     try {
-        const query       = `SELECT * FROM CITIES WHERE ID_DEPARTMENT = :id`; 
+        const query       = `SELECT * FROM DEPARTMENTS WHERE ID_COUNTRY = :id`; 
         connection = await oracleConn();
-        const result = await connection.execute(query, [deptId]);
+        const result = await connection.execute(query, [countryId]);
         return result;
     } catch (error) {
         throw new Error(error.message);
@@ -57,5 +56,5 @@ const getByDepartmentId = async (deptId) => {
 module.exports = {
     getAll,
     getById,
-    getByDepartmentId
+    getByCountryId
 };

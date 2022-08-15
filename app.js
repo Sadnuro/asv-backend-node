@@ -3,6 +3,7 @@ const morgan = require('morgan');
 
 // Routes
 const cityRouter = require('./src/routers/cityRouter')
+const departmentRouter = require('./src/routers/departmentRouter');
 const countryRouter = require('./src/routers/countryRouter')
 
 // App config
@@ -13,6 +14,7 @@ app.use(morgan('dev')) // combined | common | dev |short | tiny
 
 const api_path = '/asv2/api/form-data';
 app.use(api_path, cityRouter);
+app.use(api_path, departmentRouter);
 app.use(api_path, countryRouter);
 
 

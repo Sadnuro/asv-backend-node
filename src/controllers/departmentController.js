@@ -2,11 +2,11 @@
 const  express = require('express');
 
 // Services
-const cityService = require('../services/cityService');
+const departmentService = require('../services/departmentService');
 
 const getAll = async (req, res) => {
     try {
-        const result = await cityService.getAll();
+        const result = await departmentService.getAll();
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         throw new Error(error.message);
@@ -16,17 +16,17 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
     try {
         const params = req.params;
-        const result = await cityService.getById(params.cityId)
+        const result = await departmentService.getById(params.deptId)
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         throw new Error(error.message);
     }
 };
 
-const getByDepartmentId = async (req, res) => {
+const getByCountryId = async (req, res) => {
     try {
         const params = req.params;
-        const result = await cityService.getByDepartmentId(params.deptId);
+        const result = await departmentService.getByCountryId(params.countryId);
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         throw new Error(error.message);
@@ -36,5 +36,5 @@ const getByDepartmentId = async (req, res) => {
 module.exports = {
     getAll,
     getById,
-    getByDepartmentId,
+    getByCountryId,
 }
