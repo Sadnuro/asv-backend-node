@@ -23,7 +23,7 @@ const getById =  async (id)=>{
 
 const getByCountryId = async (countryId) => {
     try {
-        const result = await departmentDAO.getByDepartmentId(countryId);
+        const result = await departmentDAO.getByCountryId(countryId);
         
         return result;
     } catch (error) {

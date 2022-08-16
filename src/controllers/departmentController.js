@@ -9,6 +9,7 @@ const getAll = async (req, res) => {
         const result = await departmentService.getAll();
         res.send( {status: 'successful', data: result } );
     } catch (error) {
+        // res.status(404).send({ status: 'failed', error: error.message})
         throw new Error(error.message);
     }
 }
@@ -19,6 +20,7 @@ const getById = async (req, res) => {
         const result = await departmentService.getById(params.deptId)
         res.send( {status: 'successful', data: result } );
     } catch (error) {
+        // res.status(404).send({ status: 'failed', error: error.message})
         throw new Error(error.message);
     }
 };
@@ -29,6 +31,7 @@ const getByCountryId = async (req, res) => {
         const result = await departmentService.getByCountryId(params.countryId);
         res.send( {status: 'successful', data: result } );
     } catch (error) {
+        // res.status(404).send({ status: 'failed', error: error.message})
         throw new Error(error.message);
     }
 };

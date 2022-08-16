@@ -1,8 +1,8 @@
-const countryDao = require('../dao/countryDao');
+const documentTypeDao = require('../dao/documentTypeDao');
 
 const getAll = async () => {
     try {
-        const result = await countryDao.getAll();
+        const result = await documentTypeDao.getAll();
         return result;
     } catch (error) {
         throw new Error(error.message);
@@ -11,8 +11,7 @@ const getAll = async () => {
 
 const getById =  async (id)=>{
     try {
-        const result = await countryDao.getById(id);
-
+        const result = await documentTypeDao.getById(id);
         return result;
     } catch (error) {
         throw new Error(error.message);

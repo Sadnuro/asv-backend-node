@@ -4,11 +4,10 @@ const getAll = async () => {
     let connection;
     try {
         connection = await oracleConn();
-        const result = await connection.execute(`SELECT * FROM COUNTRIES`); 
+        const result = await connection.execute(`SELECT * FROM DOCUMENT_TYPES`); 
         return result; 
     } catch (error) {
         console.error( {Error: error} );
-        throw new Error(error.message);
     } finally {
         try {
             await connection.close();
@@ -21,7 +20,7 @@ const getAll = async () => {
 const getById =  async (id)=>{
     let connection;
     try {
-        const query       = `SELECT * FROM COUNTRIES WHERE ID_COUNTRY = :id`; 
+        const query       = `SELECT * FROM DOCUMENT_TYPES WHERE ID_DOC_TYPE = :id`; 
         connection = await oracleConn();
         const result = await connection.execute(query, [id]); 
         return result;
@@ -35,7 +34,6 @@ const getById =  async (id)=>{
         }
     }
 };
-
 
 module.exports = {
     getAll,

@@ -11,7 +11,7 @@ const countryController = require('../controllers/countryController');
 const route_path = '/country';
 
 router.get(`${route_path}/`, countryController.getAll);
-router.get(`${route_path}/:cityId`, countryController.getById);
+router.get(`${route_path}/:countryId`, countryController.getById);
 
 
 module.exports = router;

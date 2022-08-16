@@ -2,11 +2,11 @@
 const  express = require('express');
 
 // Services
-const countryService = require('../services/countryService');
+const documentTypeService = require('../services/documentTypeService');
 
 const getAll = async (req, res) => {
     try {
-        const result = await countryService.getAll();
+        const result = await documentTypeService.getAll();
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         throw new Error(error.message);
@@ -16,7 +16,7 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
     try {
         const params = req.params;
-        const result = await countryService.getById(params.countryId)
+        const result = await documentTypeService.getById(params.id)
         res.send( {status: 'successful', data: result } );
     } catch (error) {
         throw new Error(error.message);
