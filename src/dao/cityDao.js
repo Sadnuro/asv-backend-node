@@ -1,5 +1,9 @@
 const oracleConn = require('../database/oracleConn');
 
+/**
+ * 
+ * @returns All cities without filters
+ */
 const getAll = async () => {
     let connection;
     try {
@@ -18,6 +22,11 @@ const getAll = async () => {
     }
 };
 
+/**
+ * 
+ * @param {*} id 
+ * @returns Return city with id_city will be equal to param value
+ */
 const getById =  async (id)=>{
     let connection;
     try {
@@ -36,6 +45,11 @@ const getById =  async (id)=>{
     }
 };
 
+/**
+ * 
+ * @param {*} deptId 
+ * @returns Return cities with id_department will be equal to param value.
+ */
 const getByDepartmentId = async (deptId) => {
     let connection;
     try {

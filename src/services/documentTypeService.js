@@ -17,8 +17,17 @@ const getById =  async (id)=>{
         throw new Error(error.message);
     }
 };
+const insertOne =  async ({abbreviation, docTypeName})=>{
+    try {
+        const result = await documentTypeDao.insertOne( {abbreviation, docTypeName} );
+        return result;
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
 
 module.exports = {
     getAll,
     getById,
+    insertOne
 };

@@ -5,7 +5,7 @@ const config = require('./config.json').development;
 // OUT_FORMAT_ARRAY      : { metaData: [{}, ...], rows: [ [], ... ] }
 // OUT_FORMAT_OBJECT     : { metaData: [{}, ...], rows: [ {}, ... ] }
 oracledb.outFormat  = oracledb.OUT_FORMAT_OBJECT;  // Array is default
-oracledb.autoCommit = true;
+oracledb.autoCommit = false;
 
 const db_options = {
     user            : config.username,

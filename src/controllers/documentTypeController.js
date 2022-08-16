@@ -22,9 +22,21 @@ const getById = async (req, res) => {
         throw new Error(error.message);
     }
 };
+const insertOne = async (req, res) => {
+    try {
+        const data = {
+            abbreviation: req.body.abbreviation,
+            docTypeName:  req.body.docTypeName
+        };
+        const result = await documentTypeService.insertOne(data);
+        res.send( {status: 'successful', data: result } );
+    } catch (error) {
+        throw new Error(error.message);
+    }
+};
 
 module.exports = {
     getAll,
     getById,
-
+    insertOne
 }
